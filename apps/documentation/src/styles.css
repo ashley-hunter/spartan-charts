@@ -1,0 +1,80 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* shadcn/ui design tokens - light + dark, chart colors flip per theme */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    /* shadcn charts palette (blue ramp) as full colors, used directly via var() */
+    --chart-1: lab(77.5052% -6.4629 -36.42);
+    --chart-2: lab(54.1736% 13.3369 -74.6839);
+    --chart-3: lab(44.0605% 29.0279 -86.0352);
+    --chart-4: lab(36.9089% 35.0961 -85.6872);
+    --chart-5: lab(30.2514% 27.7853 -70.2699);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9.8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    /* shadcn charts use the same blue ramp in dark mode */
+    --chart-1: lab(77.5052% -6.4629 -36.42);
+    --chart-2: lab(54.1736% 13.3369 -74.6839);
+    --chart-3: lab(44.0605% 29.0279 -86.0352);
+    --chart-4: lab(36.9089% 35.0961 -85.6872);
+    --chart-5: lab(30.2514% 27.7853 -70.2699);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+/* Code syntax highlighting colors */
+.hljs {
+  @apply bg-muted text-foreground rounded-lg p-4;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

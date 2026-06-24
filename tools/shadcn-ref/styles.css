@@ -1,0 +1,213 @@
+/* Theme tokens (same values as the Angular app) */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --border: 0 0% 89.8%;
+  --chart-1: lab(77.5052% -6.4629 -36.42);
+  --chart-2: lab(54.1736% 13.3369 -74.6839);
+  --chart-3: lab(44.0605% 29.0279 -86.0352);
+  --chart-4: lab(36.9089% 35.0961 -85.6872);
+  --chart-5: lab(30.2514% 27.7853 -70.2699);
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 9.8%;
+  --card-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --border: 0 0% 14.9%;
+  --chart-1: lab(77.5052% -6.4629 -36.42);
+  --chart-2: lab(54.1736% 13.3369 -74.6839);
+  --chart-3: lab(44.0605% 29.0279 -86.0352);
+  --chart-4: lab(36.9089% 35.0961 -85.6872);
+  --chart-5: lab(30.2514% 27.7853 -70.2699);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+.chart {
+  background: hsl(var(--card));
+  font-size: 12px;
+}
+
+/* shadcn ChartContainer recharts overrides */
+.chart .recharts-cartesian-grid line {
+  stroke: hsl(var(--border) / 0.5);
+}
+.chart .recharts-cartesian-axis-tick text,
+.chart .recharts-cartesian-axis-tick-value {
+  fill: hsl(var(--muted-foreground));
+  font-size: 12px;
+}
+.chart .recharts-surface {
+  overflow: visible;
+}
+/* shadcn override: the active dot's white ring is made transparent */
+.chart .recharts-dot[stroke='#fff'] {
+  stroke: transparent;
+}
+
+/* shadcn ChartLegendContent: centered swatch + label row below the chart */
+.spn-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 0.75rem;
+}
+.spn-legend-row .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.spn-legend-row .swatch {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.spn-legend-row .legend-label {
+  color: hsl(var(--foreground));
+  font-size: 0.75rem;
+  line-height: 1;
+}
+.spn-legend-row .legend-icon {
+  display: inline-flex;
+  color: hsl(var(--muted-foreground));
+}
+.center-value {
+  fill: hsl(var(--foreground));
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+.center-caption {
+  fill: hsl(var(--muted-foreground));
+  font-size: 1rem;
+}
+.center-value-xl {
+  fill: hsl(var(--foreground));
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+.spn-legend-row.pie-legend {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  transform: translateY(-0.5rem);
+}
+.spn-legend-row.pie-legend .legend-item {
+  flex: 0 0 25%;
+  justify-content: center;
+}
+
+/* shadcn ChartTooltipContent (indicator="line", single series nestLabel) */
+.tt {
+  min-width: 8rem;
+  display: grid;
+  align-items: start;
+  gap: 0.375rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border) / 0.5);
+  background: hsl(var(--background));
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  color: hsl(var(--foreground));
+}
+.tt-row {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.tt-row-dot {
+  align-items: center;
+}
+.tt-ind {
+  width: 0.25rem;
+  align-self: stretch;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.tt-ind-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  align-self: center;
+}
+.tt-ind-dashed {
+  width: 0;
+  height: 0.75rem;
+  border-width: 1.5px;
+  border-style: dashed;
+  border-radius: 0;
+  align-self: center;
+}
+.tt-body {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  line-height: 1;
+}
+.tt-nest {
+  align-items: flex-end;
+}
+.tt-labels {
+  display: grid;
+  gap: 0.375rem;
+}
+.tt-label {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+.tt-name {
+  color: hsl(var(--muted-foreground));
+  line-height: 1;
+}
+.tt-value {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: hsl(var(--foreground));
+}
+
+/* recharts LabelList className="fill-foreground" (no Tailwind here) */
+.fill-foreground { fill: hsl(var(--foreground)); }
+.fill-white { fill: #fff; }
+.fill-muted-foreground { fill: hsl(var(--muted-foreground)); }
+.capitalize { text-transform: capitalize; }
+
+/* recharts polar grid (radar + radial) uses the border token */
+.chart .recharts-polar-grid-angle line,
+.chart .recharts-polar-grid-concentric-circle,
+.chart .recharts-polar-grid-concentric-polygon {
+  stroke: hsl(var(--border));
+}
+.chart .recharts-polar-angle-axis-tick-value {
+  fill: hsl(var(--muted-foreground));
+  font-size: 12px;
+}
+
+/* radial-text / radial-shape: PolarGrid with first:fill-muted last:fill-background */
+.chart .first\:fill-muted:first-child { fill: hsl(var(--muted)); }
+.chart .last\:fill-background:last-child { fill: hsl(var(--background)); }

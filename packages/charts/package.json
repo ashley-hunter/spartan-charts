@@ -1,0 +1,10 @@
+{
+  "name": "@spartan-ng/charts",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "d3": "^7.9.0"
+  },
+  "sideEffects": false
+}
